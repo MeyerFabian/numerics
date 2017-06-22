@@ -26,3 +26,4 @@ errorOf_h = f(nh)
 
 y = [1:0.01:1.5];
 plot(y,f(y),y,g(y),ng,f(ng),nh,f(nh))
+
