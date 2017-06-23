@@ -1,25 +1,24 @@
 #bisection algorithm
-function [a,b] = bisection2(func,a,b)
-  half_point = (a+b)/2;
+function x = bisection2(func,x)
+    half_point = (x(1)+x(2))/2;
   if(abs(func(half_point))<eps)
-    a= half_point;
-    b= half_point;
-  elseif(sign(func(half_point))==sign(func(a)))
-    a=half_point;
+    x(1)= half_point;
+    x(2)= half_point;
+  elseif(sign(func(half_point))==sign(func(x(1))))
+    x(1)=half_point;
   else
-    b=half_point;
+    x(2)=half_point;
   endif
 end  
 
-function x = bisection(func,a,b,n)
-  if(a>b)
-    t=b;
-    b=a;
-    a=t;
+function x = bisection(func,x,n)
+  if(x(1)>x(2))
+    t=x(1);
+    x(1)=x(2);
+    x(2)=t;
   endif
-  x=[a b];
   for i=1:n
-  [a,b] = bisection2(func,a,b);
-  x=[x;a b];
+  y = bisection2(func,[x(end,1) x(end,2)]);
+  x=[x;y];
   end
 end 
