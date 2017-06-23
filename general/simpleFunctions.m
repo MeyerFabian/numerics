@@ -4,3 +4,4 @@ function x = iterate(func,n,x)
   x = func(x);
   end
 end
+
