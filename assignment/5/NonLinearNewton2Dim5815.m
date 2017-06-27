@@ -1,5 +1,5 @@
 source "../../general/newton.m"
-
+source "../../general/simpleFunctions.m"
 x1 = [0 0];
 x2 = [1 1];
 n=10;
@@ -15,11 +15,11 @@ df2x = @(x) 2*(x(1)-2);
 df2y = @(x) 2*(x(2)-0.5);
 
 #cell arrays to store function handles
-F1 = {f1, f2} ;
+F1 = {f1; f2} ;
 
-Fd1 = { df1x, df1y ;
-        df2x, df2y};
-
+Fd1 = { df1x, df2x;
+        df1y, df2y};
+        
 #newton root finding
 root1 = newton(x1,F1,Fd1,n);
 root2 = newton(x2,F1,Fd1,n);
