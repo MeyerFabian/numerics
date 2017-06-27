@@ -1,6 +1,6 @@
 source "../../general/newton.m"
 source "../../general/simpleFunctions.m"
-x = [1 1];
+x = [1,1];
 n=10;
 
 #functions given
@@ -14,13 +14,17 @@ df2x = @(x) 8*x(1);
 df2y = @(x) -9*x(2).^2;
 
 #cell arrays to store function handles
-F1 = {f1; f2} ;
+F1 = {f1, f2} ;
 
 Fd1 = { df1x, df2x ;
         df1y, df2y};
 
 #newton root finding
 root = newton(F1,Fd1,n,x)
+
+#errors
+f1(root)
+f2(root)
 
 #we are finished here with newton next is just bunch of graphics
 # in the middle of the sphere 

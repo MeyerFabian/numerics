@@ -10,8 +10,8 @@ function x = gaussnewton(f,fd,k,x,varargin)
   for(it=1:k)
     F = evalFMatrix(f,x,varargin{:});
     Fd = evalFMatrix(fd,x,varargin{:});
-    gradF = Fd' *F;
-    sHF = Fd' *Fd;
+    gradF = F * Fd' ;
+    sHF =  Fd *Fd';
     x = solveLinearSystem(gradF,sHF,x);
   end
 end

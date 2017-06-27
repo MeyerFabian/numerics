@@ -10,13 +10,13 @@ function F = evalFMatrix(f,x,varargin)
   for(i=1:rows(f))
     v=[];
     for(j=1:columns(f))
-    v = [v (f{i,j}(x,varargin{:}))'];
+    v = [v, (f{i,j}(x,varargin{:}))];
     end
   F = [F; v];
   end
 end
 
 function x = solveLinearSystem(F,Fd,x)
-    s = -F' / Fd;
+    s = -F / Fd;
     x = x + s;
 end

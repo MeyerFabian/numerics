@@ -1,7 +1,7 @@
 source "../../general/newton.m"
 source "../../general/simpleFunctions.m"
-x1 = [0 0];
-x2 = [1 1];
+x1 = [0,0];
+x2 = [1,1];
 n=10;
 
 #functions given
@@ -14,8 +14,9 @@ df1y = @(x) -1;
 df2x = @(x) 2*(x(1)-2);
 df2y = @(x) 2*(x(2)-0.5);
 
+
 #cell arrays to store function handles
-F1 = {f1; f2} ;
+F1 = {f1, f2} ;
 
 Fd1 = { df1x, df2x;
         df1y, df2y};
