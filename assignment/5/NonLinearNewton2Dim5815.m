@@ -21,8 +21,8 @@ Fd1 = { df1x, df2x;
         df1y, df2y};
         
 #newton root finding
-root1 = newton(x1,F1,Fd1,n);
-root2 = newton(x2,F1,Fd1,n);
+root1 = newton(F1,Fd1,n,x1);
+root2 = newton(F1,Fd1,n,x2);
 
 #errors
 f1(root1)

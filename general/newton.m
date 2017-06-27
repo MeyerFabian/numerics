@@ -3,10 +3,10 @@
 #x : starting value of the fixpoint iteration (n x 1)
 #fd: the jacobian matrix of f of dimension (m x n)
 #k : the number of iterations
-function x = newton(x,f,fd,k,varargin)
+function x = newton(f,fd,k,x,varargin)
   for(it=1:k)
     F = evalFMatrix(f,x,varargin{:});
     Fd = evalFMatrix(fd,x,varargin{:});
-    x = solveLinearSystem(x,F,Fd);
+    x = solveLinearSystem(F,Fd,x);
   end
 end

@@ -20,7 +20,7 @@ Fd1 = { df1x, df2x ;
         df1y, df2y};
 
 #newton root finding
-root = newton(x,F1,Fd1,n)
+root = newton(F1,Fd1,n,x)
 
 #we are finished here with newton next is just bunch of graphics
 # in the middle of the sphere 

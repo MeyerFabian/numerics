@@ -16,7 +16,7 @@ function F = evalFMatrix(f,x,varargin)
   end
 end
 
-function x = solveLinearSystem(x,F,Fd)
+function x = solveLinearSystem(F,Fd,x)
     s = -F' / Fd;
     x = x + s;
 end

@@ -6,12 +6,12 @@
 #k : the number of iterations
 #gradF : gradient of f
 #sHF: is the simplified Hessian ignoring squared terms
-function x = gaussnewton(x,f,fd,k,varargin)
+function x = gaussnewton(f,fd,k,x,varargin)
   for(it=1:k)
     F = evalFMatrix(f,x,varargin{:});
     Fd = evalFMatrix(fd,x,varargin{:});
     gradF = Fd' *F;
     sHF = Fd' *Fd;
-    x = solveLinearSystem(x,gradF,sHF);
+    x = solveLinearSystem(gradF,sHF,x);
   end
 end
