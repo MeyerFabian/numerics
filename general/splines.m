@@ -32,14 +32,19 @@ end
 function s = splineInterp(x,tx,c,k)
   m=1;
   t=length(tx);
+  if(x==tx(end))
+    s= c(end);
+    return;
+  end
+  
   for(j=1:t)
     if(tx(j)>x)
     m=j-1;
     break;
     endif;
   end;
+  
   for(j=1:k)
-
     cj(sId(j,1))=c(m+j-1);
     for(p=2:j)
     cj(sId(j,p)) = calcCjpx(cj,j,p,m,k,tx,x);
