@@ -23,10 +23,14 @@ function j = sId(j,p)
   j=(j-1)*(j)/2+p;
 end
 
+function i = tId(i,minimum,maximum)
+  i = min(max(i,minimum),maximum);
+end
+
 function cjpx = calcCjpx(cj,j,p,m,k,tx,x)
-  b = min(max(m+j-k,1),length(tx));
-  e= max(min(m+j-p+1,length(tx)),1);
-  cjpx = (x - tx(b)) / (tx(e) - tx(b)) *cj(sId(j,p-1))+(tx(e)-x) / (tx(e) - tx(b)) *cj(sId(j-1,p-1));
+  bg = tId(m+j-k,1,length(tx));
+  ed = tId(m+j-p+1,1,length(tx));
+  cjpx = (x - tx(bg)) / (tx(ed) - tx(bg)) *cj(sId(j,p-1))+(tx(ed)-x) / (tx(ed) - tx(bg)) *cj(sId(j-1,p-1));
 end
 
 function s = splineInterp(x,tx,c,k)
@@ -52,3 +56,52 @@ function s = splineInterp(x,tx,c,k)
   end
   s=cj(end);
 end
+
+function N = bsplineRec(tx,x,j,k)
+  if(k==1)
+    bg = tId(j,1,length(tx));
+    ed = tId(j+1,1,length(tx));
+    if(tx(bg)<=x && tx(ed)>x)
+      N=1;
+    else
+      N=0;
+    end
+  else
+    b1 = tId(j,1,length(tx));
+    e1 = tId(j+k-1,1,length(tx));
+    b2 = tId(j+1,1,length(tx));
+    e2 = tId(j+k,1,length(tx));
+    N=0;
+    
+    if(b1==e1)
+      g1 = 0;
+    else
+      g1 =(x-tx(b1))/(tx(e1)-tx(b1));
+    end
+    if(b2==e2)
+      g2 = 0;
+    else
+      g2 =(tx(e2)-x)/(tx(e2)-tx(b2));
+    end
+    N= (g1)*bsplineRec(tx,x,j,k-1) +(g2)*bsplineRec(tx,x,j+1,k-1);  
+  end
+    
+end
+
+function N = bspline(tx,x,j,k)
+
+  bg = tId(j,1,length(tx));
+  ed = tId(j+k,1,length(tx));
+    
+  if(x==tx(end) && j==length(tx)-1)
+    N=1;
+    break;
+  end;
+
+  if(tx(bg)>x && tx(ed)<=x)
+    N=0;
+    break;
+  end
+  N=bsplineRec(tx,x,j,k);
+end
+
