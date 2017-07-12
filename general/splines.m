@@ -89,7 +89,7 @@ function N = bsplineRec(tx,x,j,k)
 end
 
 function N = bspline(tx,x,j,k)
-
+  j = j-(k-1);
   bg = tId(j,1,length(tx));
   ed = tId(j+k,1,length(tx));
     
@@ -104,4 +104,5 @@ function N = bspline(tx,x,j,k)
   end
   N=bsplineRec(tx,x,j,k);
 end
+
 
