@@ -1,4 +1,3 @@
-
 #gaussnewton method for arbitrary dimensions
 #f : function of which to find a minimum of dimension (m x 1)
 #x : starting parameters of the fixpoint iteration (n x 1)

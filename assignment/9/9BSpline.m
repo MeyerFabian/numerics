@@ -9,7 +9,7 @@ clf;
 hold on;
 for(j=1:length(tx)+k-2)
   for(i=1:length(x))
-  N(i) = bspline(tx,x(i),j,k);
+  N(i) = bSpline(tx,x(i),j,true,k);
   end
   plot(x,N);
 end

@@ -10,6 +10,6 @@ clf;
 hold on;
 
 for(i=1:length(x))
-    y(i) = splineInterp(x(i),tx,c,k);
+    y(i) = bSplineInterp(x(i),tx,c,k);
 end  
 plot(x,y)

@@ -5,6 +5,10 @@ function x = iterate(f,n,x)
   end
 end
 
+# evaluates the matrix of functions for every cell
+# f: function matrix
+# x: point to evaluates
+# varargin: parameters of f 
 function F = evalFMatrix(f,x,varargin)
   F = [];
   for(i=1:rows(f))
@@ -16,6 +20,7 @@ function F = evalFMatrix(f,x,varargin)
   end
 end
 
+#solves a linear system and corrects x (iterativly)
 function x = solveLinearSystem(F,Fd,x)
     s = -F / Fd;
     x = x + s;
