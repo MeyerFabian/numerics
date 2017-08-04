@@ -15,6 +15,7 @@ for(i=1:length(x))
     y(i) = bSplineInterp(x(i),tx,c,k);
 end  
 plot(x,y)
-
+title("cubic spline-interpolation for heaviside-type function");
+legend("datapoints","spline");
 #plot(x,y)
 #plot(tx,f,'o');
