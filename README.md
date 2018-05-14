@@ -1,8 +1,7 @@
 # numerics
-only for backup.
+problems are by papers/websites
 
-assignments and chapters by Numerik für Ingenieure und Naturwissenschaftler of Wolfgang Dahmen and Arnold Reusken
-branch contents tasks that i programed
+assignments by Numerik für Ingenieure und Naturwissenschaftler of Wolfgang Dahmen and Arnold Reusken
 
 ## 5 nonlinear systems of equations
 fixed point problems
@@ -18,4 +17,5 @@ cubic spline interpolation
 ## 9 spline functions
 b-spline basis
 cubic spline interpolation with boundary conditions (given some function values)
+
 

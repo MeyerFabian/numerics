@@ -116,12 +116,12 @@ function N = bSpline(tx,x,j,j_reId,k)
     
   if(x==tx(end) && j==length(tx)-1)
     N=1;
-    break;
+    return;
   end;
 
   if(tx(bg)>x && tx(ed)<=x)
     N=0;
-    break;
+    return;
   end
   N=bSplineRec(tx,x,j,k);
 end
