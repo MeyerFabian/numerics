@@ -1,9 +1,9 @@
 # numerics
-##problems: are by different papers/websites  
-##fep: by finite element procedures by k.j. bathe in python  
+## problems: are by different papers/websites  
+## fep: by finite element procedures by k.j. bathe in python  
 ### 6 non linear isoparametric finite element calculation
 
-##assignments: by Numerik für Ingenieure und Naturwissenschaftler of Wolfgang Dahmen and Arnold Reusken in matlab/octave  
+## assignments: by Numerik für Ingenieure und Naturwissenschaftler of Wolfgang Dahmen and Arnold Reusken in matlab/octave  
 
 ### 5 nonlinear systems of equations
 fixed point problems  
