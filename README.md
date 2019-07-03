@@ -5,6 +5,8 @@ numerics
 are by different papers/websites:
   * APIC Cubic Dp proof in python sympy: [Jiang et al., 2015](https://www.math.ucla.edu/~jteran/papers/JSSTS15.pdf)
   * Steepness constraint with Newton's method in matlab/octave [Stomakhin et al.,2017](http://alexey.stomakhin.com/research/siggraph2017_fab.pdf)
+  * conjugate gradient solver
+  * error plot from higham 2002 for error propagation in floating point operations
   
 /fep
 ----
